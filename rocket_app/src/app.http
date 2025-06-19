@@ -1,0 +1,36 @@
+@web_api_host = http://127.0.0.1:8080
+
+
+###
+
+GET {{web_api_host}}/api/users HTTP/2
+
+###
+
+GET {{web_api_host}}/api/users/8 HTTP/2
+
+###
+
+PUT {{web_api_host}}/api/users/8 
+Content-Type: application/json
+
+{
+  "user_id": 8,
+  "name": "Hiedi",
+  "email": "hiedi@example.com",
+  "active": true
+}
+
+###
+
+POST {{web_api_host}}/api/users HTTP/2
+Content-Type: application/json
+
+{
+  "name": "Brandi",
+  "email": "brandi@example.com",
+  "active": true
+}
+
+###
+DELETE {{web_api_host}}/api/users/11 HTTP/2
