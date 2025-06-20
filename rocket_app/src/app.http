@@ -3,6 +3,8 @@
 
 ###
 
+#USERS
+
 GET {{web_api_host}}/api/users HTTP/2
 
 ###
@@ -34,3 +36,109 @@ Content-Type: application/json
 
 ###
 DELETE {{web_api_host}}/api/users/11 HTTP/2
+
+###
+
+# TASKS
+
+GET {{web_api_host}}/api/tasks HTTP/2
+
+###
+
+GET {{web_api_host}}/api/tasks/1 HTTP/2
+
+###
+
+PUT {{web_api_host}}/api/tasks/1
+Content-Type: application/json
+
+{
+  "title": "Finish Report Updated",
+  "description": "Complete the updated quarterly report",
+  "status_id": 2,
+  "assigned_to": 3
+}
+
+###
+
+POST {{web_api_host}}/api/tasks
+Content-Type: application/json
+
+{
+  "title": "New Task",
+  "description": "Description of new task",
+  "status_id": 1,
+  "assigned_to": 1
+}
+
+###
+
+DELETE {{web_api_host}}/api/tasks/11 HTTP/2
+
+###
+
+# STATUSES
+
+GET {{web_api_host}}/api/task_statuses HTTP/2
+
+###
+
+GET {{web_api_host}}/api/task_statuses/1 HTTP/2
+
+###
+
+PUT {{web_api_host}}/api/task_statuses/1
+Content-Type: application/json
+
+{
+  "status_name": "Completed"
+}
+
+###
+
+POST {{web_api_host}}/api/task_statuses
+Content-Type: application/json
+
+{
+  "status_name": "In Progress"
+}
+
+###
+
+DELETE {{web_api_host}}/api/task_statuses/4 HTTP/2
+
+###
+
+# ASSIGNMENTS
+
+GET {{web_api_host}}/api/user_tasks HTTP/2
+
+###
+
+GET {{web_api_host}}/api/user_tasks/4/2 HTTP/2
+
+###
+
+PUT {{web_api_host}}/api/user_tasks/1/2
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "task_id": 1,
+  "task_status_id": 2
+}
+
+###
+
+POST {{web_api_host}}/api/user_tasks
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "task_id": 3,
+  "task_status_id": 1
+}
+
+###
+
+DELETE {{web_api_host}}/api/user_tasks/1/2 HTTP/2
